@@ -7,7 +7,12 @@ weather_data=requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={u
 if weather_data.json()['cod'] == 404:
     print('No city found')
 else:
-     weather =weather_data.json()['weather'][0]["main"]
+     weather =weather_data.json()['weather'][0]["description"]
      temp=weather_data.json()['main']['temp']
+     feels_like=weather_data.json()['main']['feels_like']
+
      print(f'The weather in {user_input} is {weather}')
      print(f'The temperature in {user_input} is {temp} Celsius')
+     print(f'The weather feels like {feels_like}')
+     print(weather_data.json())
+           
